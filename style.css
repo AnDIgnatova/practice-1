@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+    font-family: "PT Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #292b2c;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* свойства модального окна по умолчанию */
+  .modal {
+    position: fixed;
+    /* фиксированное положение */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* цвет фона */
+    z-index: 1050;
+    opacity: 0;
+    /* по умолчанию модальное окно прозрачно */
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    /* анимация перехода */
+    pointer-events: none;
+    /* элемент невидим для событий мыши */
+  }
+
+  /* при отображении модального окно */
+  .modal:target {
+    opacity: 1;
+    pointer-events: auto;
+    overflow-y: auto;
+  }
+
+  /* ширина модального окна и его отступы от экрана */
+  .modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+  }
+
+  @media (min-width: 576px) {
+    .modal-dialog {
+      max-width: 754px;
+      margin: 30px auto;
+    }
+  }
+
+  /* свойства для блока, содержащего контент модального окна */
+  .modal-content {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: .3rem;
+    outline: 0;
+    padding: 23px 17px;
+    border-radius: 12px;
+  }
+
+  @media (min-width: 576px) {
+    .modal-content {
+        padding: 53px 97px;
+    }
+  }
+
+
+  /* свойства для заголовка модального окна */
+  .modal-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+
+  .modal-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 34px;
+    font-size: 28px;
+    font-weight: 800;
+    color: rgba(12, 16, 20, 1);
+    font-family: "Montserrat", sans-serif;
+  }
+
+  /* свойства для кнопки "Закрыть" */
+  .close {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    color: rgba(8, 72, 192, 1);
+    text-align: center;
+    text-decoration: none;
+    font-family: "PT Sans", sans-serif;
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 100%;
+    display: inline-block;
+  }
+
+  /* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+  .close:focus,
+  .close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .75;
+  }
+
+  /* свойства для блока, содержащего основное содержимое окна */
+  .modal-body {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    overflow: auto;
+    padding-top: 35px;
+  }
+
+  .submitBnt{
+    font-family: "Lato", sans-serif;
+    color: #ffffff !important;
+    background-color: rgba(229, 38, 110, 1);
+    border: none;
+    border-radius: 4px;
+    line-height: 18px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    height: 48px;
+    margin-top: 15px;
+  }
+
+  .submitBnt:hover,
+  .submitBnt:focus {
+    background-color: rgba(8, 72, 192, 1);
+  }
+  
+  
+  .custom-form-control{
+    margin-bottom: 32px;
+    padding: 16px;
+    border: 1px solid rgba(214, 218, 222, 1);
+    border-radius: 2px;
+    font-size: 16px;
+    height: 55px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: "PT Sans", sans-serif;
+  }
+
+  .custom-form-control:hover,
+   .custom-form-control:focus,
+   .custom-form-control:active {
+    border: 1px solid rgba(8, 72, 192, 1);
+    outline: none;
+  }
+
+  .custom-form-control-profil {
+    max-width: 362px;
+    padding: 22px 0 8px 16px;
+  }
+
+  .custom-form-control-select {
+    padding: 22px 0 8px 16px;
+  }
+
+  input, select, textarea{
+    color: #000000;
+}
+
+input::placeholder {
+    color: rgb(0, 0, 0);
+  }
+
+
+  /*
+
+  input[list='options'] {
+    border: 1px solid rgba(214, 218, 222, 1);
+    border-radius: 2px;
+    font-size: 14px;
+    height: 45px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #9197b5;
+  }
+
+  
+  input[list='options']:focus {
+    border: 1px solid rgba(214, 218, 222, 1);
+  }
+  
+  option {
+    border: 1px solid rgba(214, 218, 222, 1);
+    border-radius: 2px;
+    font-size: 14px;
+    height: 45px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #9197b5;
+  }
+  
+
+  select {
+    width: 140px;
+    height: 35px;
+    padding: 5px 35px 5px 5px;
+    font-size: 18px;
+    border: 2px solid #ccc;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url("/uploads/media/default/0001/02/f7b4d3d2ba3fe1d8518e6e63d7740e1e73921abf.png") 96% / 15% no-repeat #eee;
+    }
+    select::-ms-expand { 
+    display: none;
+    }*/
+
+    select::-ms-expand { 
+        display: none; /* удалите стрелку по умолчанию в IE 10 и 11 */
+        }
+
+    .mybox {
+        position: relative;
+        display: inline-block;
+        border-radius: 2px;
+        width: 100%;
+        }
+        select {
+        display: inline-block;
+        outline: none;
+        border-radius: 5px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        }
+        /* Select arrow styling */
+        .mybox .myarrow{
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        display: inline-block;
+        top: 20px;
+        right: 15px;
+        background: url("img/icon-color.svg") right / 100% no-repeat #ffffff;
+        pointer-events: none;
+        }
+
+        option {
+            border: 1px solid rgba(214, 218, 222, 1);
+            border-radius: 2px;
+            font-size: 14px;
+            height: 45px;
+            width: 100%;
+          }
+
+
+  
+  .custom-form-group label{
+      color: #000;
+      margin-left: 8px;
+      text-align: left;
+    font-weight: 300;
+    font-family: inherit;
+    font-size: 14px;
+      cursor: pointer;
+    font-style: italic;
+      display: inline-block;
+  }
+  
+  .mandatory{
+      color: #EC3324;
+    font-weight: 400;
+    margin-left: 8px;
+    padding-right: 3px;
+  
+  }
+  
+  .custom-form-group{
+      display: flex;
+      margin-top: 16px;
+  }
+  
+  .custom-form-group input{
+      border: 1px solid #CCC;
+    background: #FFF;
+    padding: 0 12px;
+    line-height: 38px;
+    margin: 0 0 10px 0;
+    box-shadow: inset 0 3px 2px #EEE;
+    border-radius: 2px;
+      width: 13px !important;
+      height: 13px !important;
+  }
+
+  .custom-form-web {
+    position: relative;
+  }
+
+  .custom-form-web__img {
+    position: absolute;
+    right: 16px;
+    top: 18px;
+  }
+
+  .custom-form-control-profil-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+  }
+
+  @media (min-width: 576px) {
+    .custom-form-control-profil-flex {
+        flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    }
+  }
+
+  #preview {
+    max-width: 163px;
+    border-radius: 50%;
+
+  }
+
+  .custom-form-control-profil-form {
+    width: 100%;
+  }
+  .custom-form-control-profil-photo {
+    width: 100%;
+    height: 100%;
+    max-width: 164px;
+    height: 164px;
+    overflow: hidden;
+    position: relative;
+    background: url("img/profile.png");
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    margin-bottom: 15px;
+  }
+
+  .custom-form-control-profil-photo::after {
+    content: '';
+    background: url("img/upload.svg");
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50px;
+    left: 70px;
+  }
+
+  .delite-img {
+    width: 16px;
+    height: 16px;
+    border: none;
+    background: url("img/close.svg");
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    }
+
+    .custom-form-control-delite-img {
+        position: absolute;
+        background-color: #ffffff;
+        width: 36.17px;
+        height: 36.17px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        right: 0;
+        top: 18px;
+    }
+
+
+      .file-input-label {
+        color: rgba(255, 255, 255, 1);
+        cursor: pointer;
+        font-family: "PT Sans", sans-serif;
+        font-size: 18.67px;
+        font-weight: 400;
+        line-height: 28px;
+        text-align: center;
+        position: absolute;
+        top: 75px;
+        left: 45px;
+      }
+
+      .file-input {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+      }
+
+      .custom-form__mandatory {
+        color: rgba(106, 110, 114, 1);
+        font-family: "PT Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        position: absolute;
+        top: 280px;
+        right: 70px;
+      }
+
+      @media (min-width: 576px) {
+        .custom-form__mandatory {
+            top: 30px;
+        right: 40px;
+        }
+      }
+
+      .custom-form-control-profil-form-input {
+        position: relative;
+      }
+
+      .custom-form__mandatory-input {
+        color: rgba(106, 110, 114, 1);
+        font-family: "PT Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        position: absolute;
+        z-index: 1099;
+        top: -10px;
+        left: 8px;
+      }
+
+      .custom-form__mandatory-mybox {
+        color: rgba(106, 110, 114, 1);
+        font-family: "PT Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        position: absolute;
+        z-index: 1099;
+        top: -10px;
+        left: 8px;
+      }
+
+      .custom-form__mandatory-web {
+        color: rgba(106, 110, 114, 1);
+        font-family: "PT Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        position: absolute;
+        z-index: 1099;
+        top: -10px;
+        left: 17px;
+      }
+
+      .openModal {
+        text-decoration: none;
+        background-color: rgba(229, 38, 110, 1);
+        padding: 10px 20px;
+        color: #fff;
+        border-radius: 4px;
+      }
